@@ -121,6 +121,12 @@ pub trait Filesystem {
     /// inodes will receive a forget message.
     fn forget(&mut self, _req: &Request, _ino: u64, _nlookup: u64) {}
 
+    fn forget_multi(&mut self, req: &Request, forget_data: &[kernel::fuse_forget_data]) {
+        for inode in forget_data {
+            self.forget(req, inode.ino, inode.nlookup);
+        }
+    }
+
     /// Get file attributes.
     fn getattr(&mut self, _req: &Request, _ino: u64, reply: ReplyAttr) {
         reply.error(ENOSYS);
