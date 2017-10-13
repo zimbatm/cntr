@@ -18,12 +18,12 @@ use std::slice;
 
 /// We generally support async reads
 #[cfg(not(target_os = "macos"))]
-const INIT_FLAGS: u32 = FUSE_ASYNC_READ | FUSE_EXPORT_SUPPORT | FUSE_BIG_WRITES;
+const INIT_FLAGS: u32 = FUSE_ASYNC_READ | FUSE_BIG_WRITES;
 
 /// On macOS, we additionally support case insensitiveness, volume renames and xtimes
 /// TODO: we should eventually let the filesystem implementation decide which flags to set
 #[cfg(target_os = "macos")]
-const INIT_FLAGS: u32 = FUSE_ASYNC_READ | FUSE_EXPORT_SUPPORT | FUSE_BIG_WRITES | FUSE_CASE_INSENSITIVE | FUSE_VOL_RENAME | FUSE_XTIMES;
+const INIT_FLAGS: u32 = FUSE_ASYNC_READ | FUSE_BIG_WRITES | FUSE_CASE_INSENSITIVE | FUSE_VOL_RENAME | FUSE_XTIMES;
 
 /// Create a new request from the given buffer
 pub fn request<'a>(ch: ChannelSender, buffer: &'a [u8]) -> Option<Request<'a>> {
