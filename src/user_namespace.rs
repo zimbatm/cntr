@@ -90,7 +90,7 @@ impl IdMap {
                     line
                 ),
             };
-            id_map.nr_extents = id_map.nr_extents + 1;
+            id_map.nr_extents += 1;
         }
         Ok(id_map)
     }

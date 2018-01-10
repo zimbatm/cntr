@@ -51,6 +51,7 @@ mod capabilities;
 mod ipc;
 mod container;
 mod inode;
+mod socket_proxy;
 pub mod pwd;
 pub mod fs;
 
