@@ -21,6 +21,7 @@ In this two minute recording you learn all the basics of cntr:
   * docker
   * LXC
   * LXD
+  * nix build sandbox
   * rkt
   * systemd-nspawn
 - For other container engines cntr also takes process ids (PIDs) instead of container names.
@@ -206,6 +207,10 @@ BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
 VERSION_CODENAME=xenial
 UBUNTU_CODENAME=xenial
 ```
+
+### nix build sandbox
+
+See <link to nixpkgs manual>
 
 ### rkt
 
